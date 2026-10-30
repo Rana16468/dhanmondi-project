@@ -1,26 +1,72 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Surface & Canvas Tokens */
+  --app-canvas: #EFF6FF;
+  --surface-default: #FFFFFF;
+  --surface-subdued: #DBEAFE;
+
+  /* Primary Brand Colors */
+  --color-primary: #2563EB;
+  --color-secondary: #1D4ED8;
+  --color-tertiary: #3B82F6;
+
+  /* Typography & Text Layer Colors */
+  --color-navy-text: #172554;
+  --color-muted-slate: #475569;
+
+  /* Structural Border & Divider */
+  --color-border-tint: #BFDBFE;
+
+  /* Functional Status Colors */
+  --color-success: #059669;
+  --color-warning: #D97706;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Font Family Setup (Plus Jakarta Sans with Hind Siliguri fallback for Bengali) */
+  --font-sans: var(--font-plus-jakarta), var(--font-hind-siliguri), sans-serif;
+  --font-bengali: var(--font-hind-siliguri), var(--font-plus-jakarta), sans-serif;
+
+  /* Color Palette Mapping */
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-tertiary: var(--color-tertiary);
+  --color-canvas: var(--app-canvas);
+  --color-surface: var(--surface-default);
+  --color-subdued: var(--surface-subdued);
+  --color-navy: var(--color-navy-text);
+  --color-slate-muted: var(--color-muted-slate);
+  --color-tint-border: var(--color-border-tint);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+
+  /* Roundedness (Corner Radius) Hierarchy */
+  --radius-xs: 0.25rem;  /* 4px - Checkbox, Micro Pills */
+  --radius-sm: 0.5rem;   /* 8px - Inputs, Primary Buttons, Filter Pills */
+  --radius-md: 0.75rem;  /* 12px - Inner Frames */
+  --radius-lg: 1rem;      /* 16px - Cards, Sheets, Dialogs */
+  --radius-xl: 1.5rem;   /* 24px - Hero Highlights */
+  --radius-full: 9999px; /* Status Chips, Badges, Avatars */
+
+  /* Cool Ambient Elevation & Shadows */
+  --shadow-tier-1: 0 2px 8px -2px rgba(23, 37, 84, 0.05);
+  --shadow-tier-2: 0 8px 24px -4px rgba(37, 99, 235, 0.08);
+  --shadow-tier-3: 0 20px 32px -8px rgba(23, 37, 84, 0.16);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Custom Typography Utilities for Property Prices & Headings */
+.price-lg {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--color-navy-text);
 }
 
+/* Base Body Styles */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--app-canvas);
+  color: var(--color-navy-text);
+  font-family: var(--font-sans);
 }
